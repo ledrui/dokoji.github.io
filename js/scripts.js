@@ -1,99 +1,52 @@
-$(document).ready(function() {
+  $(document).ready(function() {
+    (function() {
+        [].slice.call(document.querySelectorAll('.tabs')).forEach(function(el) {
+            new CBPFWTabs(el);
+        });
+    })();
+    $('#main-nav').sidr();
+    $('#fullpage').fullpage({
+        'verticalCentered': true,
+        'easing': 'easeInOutCirc',
+        'css3': false,
+        'scrollingSpeed': 900,
+        'slidesNavigation': true,
+        'slidesNavPosition': 'bottom',
+        'easingcss3': 'ease',
+        'navigation': true,
+        'anchors': ['Home', 'Features', 'About', 'Video', 'Clients', 'Screenshots', 'Pricing', 'Download', 'Contact'],
+        'navigationPosition': 'left'
+    });
+    $('.screenshots-content, .clients-content').css('height', $(window).height());
 
-	/***************** Waypoints ******************/
+    // CONTACT FORM
 
-	$('.wp1').waypoint(function() {
-		$('.wp1').addClass('animated fadeInLeft');
-	}, {
-		offset: '75%'
-	});
-	$('.wp2').waypoint(function() {
-		$('.wp2').addClass('animated fadeInDown');
-	}, {
-		offset: '75%'
-	});
-	$('.wp3').waypoint(function() {
-		$('.wp3').addClass('animated bounceInDown');
-	}, {
-		offset: '75%'
-	});
-	$('.wp4').waypoint(function() {
-		$('.wp4').addClass('animated fadeInDown');
-	}, {
-		offset: '75%'
-	});
+ 
+       $(document).mouseup(function (e) {
+    if ($(".sidr-open ")[0]){
+    var container = $("#sidr");
 
-	/***************** Flickity ******************/
-
-	$('#featuresSlider').flickity({
-		cellAlign: 'left',
-		contain: true,
-		prevNextButtons: false
-	});
-
-	$('#showcaseSlider').flickity({
-		cellAlign: 'left',
-		contain: true,
-		prevNextButtons: false,
-		imagesLoaded: true
-	});
-
-	/***************** Fancybox ******************/
-
-	$(".youtube-media").on("click", function(e) {
-		var jWindow = $(window).width();
-		if (jWindow <= 768) {
-			return;
-		}
-		$.fancybox({
-			href: this.href,
-			padding: 4,
-			type: "iframe",
-			'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
-		});
-		return false;
-	});
-
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0) // ... nor a descendant of the container
+    {
+      $(".sidr-open #main-nav").click();
+    }}
 });
-
-$(document).ready(function() {
-	$("a.single_image").fancybox({
-		padding: 4,
-	});
+ 
+$('#submit').click(function(){
+ 
+$.post("contact.php", $("#contact-form").serialize(),  function(response) {
+$('#success').fadeIn().html(response);
+$('#success').delay(2000).fadeOut();
 });
-
-/***************** Nav Transformicon ******************/
-
-/* When user clicks the Icon */
-$(".nav-toggle").click(function() {
-	$(this).toggleClass("active");
-	$(".overlay-boxify").toggleClass("open");
+return false;
+ 
 });
+ 
 
-/* When user clicks a link */
-$(".overlay ul li a").click(function() {
-	$(".nav-toggle").toggleClass("active");
-	$(".overlay-boxify").toggleClass("open");
-});
 
-/* When user clicks outside */
-$(".overlay").click(function() {
-	$(".nav-toggle").toggleClass("active");
-	$(".overlay-boxify").toggleClass("open");
-});
 
-/***************** Smooth Scrolling ******************/
-
-$('a[href*=#]:not([href=#])').click(function() {
-	if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
-
-		var target = $(this.hash);
-		target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-		if (target.length) {
-			$('html,body').animate({
-				scrollTop: target.offset().top
-			}, 2000);
-			return false;
-		}
-	}
-});
+  });
+  jQuery(window).load(function() {
+    jQuery('#preloader').fadeOut();
+  });
