@@ -797,7 +797,7 @@ SECTIONS
 .active .section-image img { opacity: 1 }
 
 /*Pricing*/
-
+/*
 .pricing-button {
     padding: 20px 0;
     box-sizing: border-box;
@@ -862,7 +862,7 @@ SECTIONS
 .price-table .pricing-button a {color: #E02217}
 .price-table:hover .pricing-button a {color: #fff}
 .price-table:hover .package {color: #fff}
-
+*/
 /*Contact*/
 
 #contact-form {
