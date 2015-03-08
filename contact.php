@@ -5,10 +5,10 @@ $phone = $_POST['Phone'];
 $subject = $_POST['Subject'];
 $message = $_POST['Message'];
  
-$to = 'test@email.com';
-$subject = 'the subject';
+$to = 'dokoji@RaaSIO.com';
+$subject = 'dokoji.com site - contact form';
 $message = 'FROM: '.$name.'  Email: '.$email.'  Phone: '.$phone.'  Subject: '.$subject.'  Message: '.$message;
-$headers = 'From: youremail@domain.com' . "\r\n";
+$headers = 'From: dokoji@RaaSIO.com' . "\r\n";
  
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // this line checks that we have a valid email address
 mail($to, $subject, $message, $headers); //This method sends the mail.
