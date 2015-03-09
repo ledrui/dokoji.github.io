@@ -782,7 +782,6 @@ h6 { font-weight: 400 }
 SECTIONS
 -----------------------------------------*/
 
-
 /*Features*/
 
 .features {
@@ -793,6 +792,22 @@ SECTIONS
 }
 .features li { margin-bottom: 10px }
 
+/*About*/
+.descriptions {
+    line-height:30px;
+    width:50%;
+    float:left;
+    padding:5px; 
+}
+.screenshots {
+    float:left;
+    padding:10px; 
+}
+.screenshots img{
+    width:200px;
+    position: absolute;
+    right: 0px;
+}
 /*Clients feedbacks*/
 
 .clients-content { position: relative }
