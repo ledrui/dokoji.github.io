@@ -799,14 +799,21 @@ SECTIONS
     float:left;
     padding:5px; 
 }
-.screenshots {
-    float:left;
-    padding:10px; 
+@media (max-width: 600px){
+    .descriptions {
+        width:100%;
+    }
+    .screenshots img { 
+        display: none;
+    }   
+
 }
 .screenshots img{
-    width:200px;
-    position: absolute;
-    right: 0px;
+    width:50%;
+    max-width:232px;
+    height:auto;
+    float:right;
+    border: 0;
 }
 /*Clients feedbacks*/
 
