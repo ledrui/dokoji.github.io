@@ -247,6 +247,12 @@
         height: 21px;
         line-height: 22px;
     }
+    .descriptions {
+        width:100%;
+    }
+    .screenshots img { 
+        display: none;
+    }  
 
     .package {
         padding: 15px 0;

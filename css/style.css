@@ -799,15 +799,7 @@ SECTIONS
     float:left;
     padding:5px; 
 }
-@media (max-width: 600px){
-    .descriptions {
-        width:100%;
-    }
-    .screenshots img { 
-        display: none;
-    }   
 
-}
 .screenshots img{
     width:50%;
     max-width:232px;
